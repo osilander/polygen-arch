@@ -6,4 +6,9 @@ These analyses, which prioritise on per-SNP bases, ignore to fact that when one 
 
 So here we ask whether we can detect these regions. We do this by averaging betas across regions. We can theen correlate average beta across a region, average absolute value of betas, stdev (variance) of betas, etc. Furthermore, to remove the effects of regions with very large betas, we can remove the top N regions, (e.g. the top 1000). Finally, we might want to look at general effects where we think there *should* be effects, for example, nonsyn mutations. So here we can use SNPEff or similar to find out which SNPSs (rsids) have which effects, and then plot or normalise the betas from those. Below I have specific code for doing these analyses.
 
-There are several interesting additional analyses for insight. First, we are interested in genomic regions in which average betas are high, but max beta or max -log10(pval) are low. These would (in general) be areas in which there are many small effect mutations but no large effect mutations that would n ormalkly be detected.  
+There are several interesting additional analyses for insight. First, we are interested in genomic regions in which average betas are high, but max beta or max -log10(pval) are low. These would (in general) be areas in which there are many small effect mutations but no large effect mutations that would normally be detected.
+
+We will test this below.
+
+## Data
+First we require some GWAS summary data. This is pulled from using the `ieugwasr` package from the ieu [Opengwas](https://gwas.mrcieu.ac.uk/) website. We filter the results so that it is limited to (1) 
