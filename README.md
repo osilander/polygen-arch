@@ -12,9 +12,15 @@ This is very well phrased in the paper [Genetic architecture: the shape of the g
 *The clinical effect of drugs on LDL cholesterol level and cystic fibrosis illustrate the dichotomy between variation explained and its utility to drug development...Pharmacological inhibition of HMG-CoA reductase reduces the level of LDL cholesterol by approximately 30–40%...the common SNP most strongly associated with LDL cholesterol level near HMGCR, the gene encoding HMG-CoA reductase, explains 0.26% of the variance in LDL cholesterol level...even though the HMGCR locus harbours a common genetic variant that
 explains only a small amount of phenotypic variation, the pharmacological inhibition of HMG-CoA reductase is clinically beneficial...common variants near PCSK9, the gene encoding proprotein convertase subtilisin/kexin type 9, have small effects on LDL cholesterol level74 whereas pharmacological inhibition of PCSK9 has large effects...RANKL, the gene encoding receptor activator of nuclear factor κB ligand, harbours common variants of small effect on bone mineral density67, yet pharmacological inhibition of RANKL has large effects on bone mineral density...Thus, small-effect-size SNPs can serve to highlight proteins that, when targeted with large-effect-size pharmaceuticals, can have large effects on disease risk...The amount of variance explained by a genetic variant does not always correlate with the suitability of the gene as a therapeutic target because drugs work on proteins; the base pair associated with the disease serves to help identify the causal protein. The relevance of the variation explained to the clinic should be measured by assessing the effect of pharmacological agents on the protein and its resultant effect on disease...perhaps because natural selection makes such perturbing genetic variants so rare that they lack statistical power for such an association, could still be a good drug target*
 
-So here we ask whether we can detect these regions. We do this by averaging betas across regions. We can theen correlate average beta across a region (median or mean), average absolute value of betas (median or mean), stdev (variance) of betas, etc. Furthermore, to remove the effects of regions with very large betas, we can remove the top N regions, (e.g. the top 1000). In many (all?) cases we might use *Spearman* to minimse the effect of outlier betas. Finally, we might want to look at general effects where we think there *should* be effects, for example, nonsyn mutations. So here we can use SNPEff or similar to find out which SNPSs (rsids) have which effects, and then plot or normalise the betas from those. In addition, we might wish to see which traits are more or less correlated with such cutoffs, which to some extent is an indication of their polygenicity (traits with low polygenicity should lose correlations quickly). Below I have specific code for doing these analyses.
+Some additional background and motivation is here 
+[Specificity, length, and luck: How genes are prioritized by rare and common variant association studies Dec 2024 preprint](https://www.biorxiv.org/content/10.1101/2024.12.12.628073v1.full). This notes specifically that, as expected: 
+*GWAS prioritize genes near trait-specific variants, while burden tests prioritize trait-specific genes...burden tests and GWAS reveal different aspects of trait biology*
 
-There are several interesting additional analyses for insight. First, we are interested in genomic regions in which average betas are high, but max beta or max -log10(pval) are low. These would (in general) be areas in which there are many small effect mutations but no large effect mutations that would normally be detected. We shouild compare to evolutionary constraint across the genome to see whether some disease have high/low average beta relative to constriant, with those having high beta being largely selected against. We could also check by look for consistnelry smaller betas of syn mutations in windows, plotting nonsyn avg effect vs syn avg effect (and intergenic, etc.).
+This also gives a relatively precise (and narrow) definition of burden tests: "*Burden tests aggregate variants — typically loss-of-function (LoF) variants — within a gene to create a “burden genotype”, which is then tested gene-by-gene for association with phenotypes. This is similar to common-variant GWAS but focused on rare variants collapsed at the gene level...burden tests appear less polygenic and tend to prioritize genes that are seemingly more closely related to trait biology*"
+
+So here we ask whether we can detect these regions. We do this by averaging betas across regions. We can then correlate average beta across a region (median or mean), average absolute value of betas (median or mean), stdev (variance) of betas, etc. Furthermore, to remove the effects of regions with very large betas, we can remove the top N regions, (e.g. the top 1000). In many (all?) cases we might use *Spearman* to minimse the effect of outlier betas. Finally, we might want to look at general effects where we think there *should* be effects, for example, nonsyn mutations. So here we can use SNPEff or similar to find out which SNPSs (rsids) have which effects, and then plot or normalise the betas from those. In addition, we might wish to see which traits are more or less correlated with such cutoffs, which to some extent is an indication of their polygenicity (traits with low polygenicity should lose correlations quickly). Below I have specific code for doing these analyses.
+
+There are several interesting additional analyses for insight. First, we are interested in genomic regions in which average betas are high, but max beta or max -log10(pval) are low. These would (in general) be areas in which there are many small effect mutations but no large effect mutations that would normally be detected. We shouild compare to evolutionary constraint across the genome to see whether some disease have high/low average beta relative to constriant, with those having high beta being largely selected against. We could also check by look for consistnelry smaller betas of syn mutations in windows, plotting nonsyn avg effect vs syn avg effect (and intergenic, etc.). One could also window, collapse on LD (relatively high), and then average. One might also find regions with high betas in only a single disease.
 
 Note that to some extent this is analogous to burden tests, which almost always test on a *per gene* basis. Burden tests are unencumbered by LD (for the most part).
 
@@ -41,3 +47,53 @@ LOG_DIR="logs"                        # Directory for logs
 
 ### Genomic windows
 Use `bedtools` to divide the genome into regions.
+
+### UMAP analysis
+(On previous data) - use windowed shrucnk average betas, ~64K in total at 50Kbp bin sizes. Combining all files (unfiltered for study similarity or heritbalility) with script then clean for `NA` rows:
+```awk -F'\t' '{if ($0 !~ /^(NA\t)*NA$/) print}' merged_columns.txt > cleaned_data.txt```
+Remove cols with excess `NA` values
+Then load into `R` for analysis using `uwot`.
+Remove cols with excess `NA` values:
+```filtered_data <- data[, colSums(is.na(data)) <= 3500]```
+*Then* remove rows with any NA values:
+```data_clean <- na.omit(filtered_data)```
+
+This yields a matrix of 25548 rows with 2214 studies.
+
+## get desciptors
+This is a bit meessy, now like this:
+```
+cut -f1,2 gwas_list_brief_info.txt | awk -F'\t' '
+> tolower($1) ~ /(ukb|ieu)/ {
+>     # Replace dashes with periods in the first column
+>     gsub("-", ".", $1);
+>
+>     # Work with the second field (descriptor) directly
+>     second_column = $2;
+>
+>     # Convert the second column to lowercase
+>     second_column = tolower(second_column);
+>
+>     # Remove all non-alphanumeric characters (keep letters, numbers, and spaces)
+>     gsub(/[^a-z0-9 ]/, "", second_column);
+>     # Trim leading/trailing spaces
+>     gsub(/^[ \t]+|[ \t]+$/, "", second_column);
+>
+>     # Split on spaces into up to three words
+>     split(second_column, words, / +/);
+>
+>     # Build abbreviation
+>     abbrev = "";
+>     if (length(words[1]) > 0) abbrev = substr(words[1], 1, 6);
+>     if (length(words[2]) > 0) abbrev = abbrev "_" substr(words[2], 1, 6);
+>     if (length(words[3]) > 0) abbrev = abbrev "_" substr(words[3], 1, 6);
+>
+>     # Truncate to max 15 chars
+>     if (length(abbrev) > 15) {
+>         abbrev = substr(abbrev, 1, 15);
+>     }
+>
+>     # Output the final result
+>     print $1, abbrev;
+> }' > descriptions.txt
+```
