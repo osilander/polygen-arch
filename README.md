@@ -30,31 +30,21 @@ We will test this below.
 The data we will use for uniformity is the UKBB. From the Neale Lab, we first filter on heritbalility,
 only taking those studies with h2 p-value < 0.0005.
 This brings us from a total of 4178 studies to 851 studies.
-Then we filter on notes: 
+
+Then we filter on notes:
+``` 
 isBadPower;
 isExtremeSE;
 isHighSE;
 isLowNeff;
+isMidNeff;
+isSexBias;
+```
 
-
-Then we filter on repeated or obviously indirect effects. This is:
-(1) Treatment/Medication
-(2) Illness of Father
-(3) Illness of Mother
-(4) Illness of Siblings
-(5) Workplace attributes (cold, etc.)
-(6) Job coding: nurse (etc.)
-filter:
-(7) Cereal type
-(8) Milk type
-(9) Spread type
-(10) 2654_4 Non-butter spread type
-(11) Bread type
-(12) Coffee type
-(13) Usual side of head for mobile phone use
-(14) 6139	Gas or solid-fuel cooking/heating
-(15) 6142_1	Current employment status
-(16) 6143_1	Transport type for commuting to job Workplace
+Then we filter on repeated or obviously indirect effects or questionable traits, including:
+- Usual side of head for mobile phone use: Left
+- Cereal type: Muesli
+- Workplace very noisy: Often
 
 
 Retain only:
