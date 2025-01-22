@@ -27,12 +27,31 @@ Note that to some extent this is analogous to burden tests, which almost always 
 We will test this below.
 
 ## Data
-The data we will use for uniformity is the UKBB. From the Neale Lab, we first filter on heritbalility, only taking those studies with h2 p-value < 0.001.
+The data we will use for uniformity is the UKBB. From the Neale Lab, we first filter on heritbalility,
+only taking those studies with h2 p-value < 0.001.
 This brings us from a total of 4178 studies to 879 studies. Then we filter on repeated or obviously indirect effects. This is:
 (1) Treatment/Medication
 (2) Illness of Father
 (3) Illness of Mother
 (4) Illness of Siblings
+(5) Workplace attributes (cold, etc.)
+(6) Job coding: nurse (etc.)
+filter:
+(7) Cereal type
+(8) Milk type
+(9) Spread type
+(10) 2654_4 Non-butter spread type
+(11) Bread type
+(12) Coffee type
+(13) Usual side of head for mobile phone use
+(14) 6139	Gas or solid-fuel cooking/heating
+(15) 6142_1	Current employment status
+(16) 6143_1	Transport type for commuting to job Workplace
+
+
+Retain only:
+(1) 20548 Manifestations of mania or irritability only lowest p-value
+
 
 ### Download per study summary data 
 
