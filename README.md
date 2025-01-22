@@ -10,7 +10,7 @@ These analyses, which prioritise on per-SNP bases, ignore to fact that when one 
 This is very well phrased in the paper [Genetic architecture: the shape of the genetic contribution to human traits and disease](https://www.nature.com/articles/nrg.2017.101):
 
 *The clinical effect of drugs on LDL cholesterol level and cystic fibrosis illustrate the dichotomy between variation explained and its utility to drug development...Pharmacological inhibition of HMG-CoA reductase reduces the level of LDL cholesterol by approximately 30–40%...the common SNP most strongly associated with LDL cholesterol level near HMGCR, the gene encoding HMG-CoA reductase, explains 0.26% of the variance in LDL cholesterol level...even though the HMGCR locus harbours a common genetic variant that
-explains only a small amount of phenotypic variation, the pharmacological inhibition of HMG-CoA reductase is clinically beneficial...common variants near PCSK9, the gene encoding proprotein convertase subtilisin/kexin type 9, have small effects on LDL cholesterol level whereas pharmacological inhibition of PCSK9 has large effects...RANKL, the gene encoding receptor activator of nuclear factor κB ligand, harbours common variants of small effect on bone mineral density67, yet pharmacological inhibition of RANKL has large effects on bone mineral density...Thus, small-effect-size SNPs can serve to highlight proteins that, when targeted with large-effect-size pharmaceuticals, can have large effects on disease risk...The amount of variance explained by a genetic variant does not always correlate with the suitability of the gene as a therapeutic target because drugs work on proteins; the base pair associated with the disease serves to help identify the causal protein. The relevance of the variation explained to the clinic should be measured by assessing the effect of pharmacological agents on the protein and its resultant effect on disease...perhaps because natural selection makes such perturbing genetic variants so rare that they lack statistical power for such an association, could still be a good drug target*
+explains only a small amount of phenotypic variation, the pharmacological inhibition of HMG-CoA reductase is clinically beneficial...common variants near PCSK9, the gene encoding proprotein convertase subtilisin/kexin type 9, have small effects on LDL cholesterol level whereas pharmacological inhibition of PCSK9 has large effects...RANKL, the gene encoding receptor activator of nuclear factor κB ligand, harbours common variants of small effect on bone mineral density, yet pharmacological inhibition of RANKL has large effects on bone mineral density...Thus, small-effect-size SNPs can serve to highlight proteins that, when targeted with large-effect-size pharmaceuticals, can have large effects on disease risk...The amount of variance explained by a genetic variant does not always correlate with the suitability of the gene as a therapeutic target because drugs work on proteins; the base pair associated with the disease serves to help identify the causal protein. The relevance of the variation explained to the clinic should be measured by assessing the effect of pharmacological agents on the protein and its resultant effect on disease...perhaps because natural selection makes such perturbing genetic variants so rare that they lack statistical power for such an association, could still be a good drug target*
 
 Some additional background and motivation is here 
 [Specificity, length, and luck: How genes are prioritized by rare and common variant association studies Dec 2024 preprint](https://www.biorxiv.org/content/10.1101/2024.12.12.628073v1.full). This notes specifically that, as expected: 
@@ -27,7 +27,12 @@ Note that to some extent this is analogous to burden tests, which almost always 
 We will test this below.
 
 ## Data
-First we require some GWAS summary data. This is pulled from using the `ieugwasr` package from the ieu [Opengwas](https://gwas.mrcieu.ac.uk/) website. We filter the results so that it is limited to (1) 
+The data we will use for uniformity is the UKBB. From the Neale Lab, we first filter on heritbalility, only taking those studies with h2 p-value < 0.001.
+This brings us from a total of 4178 studies to 879 studies. Then we filter on repeated or obviously indirect effects. This is:
+(1) Treatment/Medication
+(2) Illness of Father
+(3) Illness of Mother
+(4) Illness of Siblings
 
 ### Download per study summary data 
 
