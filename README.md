@@ -28,8 +28,16 @@ We will test this below.
 
 ## Data
 The data we will use for uniformity is the UKBB. From the Neale Lab, we first filter on heritbalility,
-only taking those studies with h2 p-value < 0.001.
-This brings us from a total of 4178 studies to 879 studies. Then we filter on repeated or obviously indirect effects. This is:
+only taking those studies with h2 p-value < 0.0005.
+This brings us from a total of 4178 studies to 851 studies.
+Then we filter on notes: 
+isBadPower;
+isExtremeSE;
+isHighSE;
+isLowNeff;
+
+
+Then we filter on repeated or obviously indirect effects. This is:
 (1) Treatment/Medication
 (2) Illness of Father
 (3) Illness of Mother
