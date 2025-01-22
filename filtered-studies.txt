@@ -1,0 +1,114 @@
+phenotype_code	phenotype	h2_p
+1011	Frequency of light DIY in last 4 weeks	4.9278E-06
+1021	Duration of light DIY	1.60496E-14
+1090	Time spent driving	4.94691E-22
+1110	Length of mobile phone use	4.54846E-54
+1120	Weekly usage of mobile phone in last 3 months	8.319E-45
+1130	Hands-free device/speakerphone use with mobile phone in last 3 month	7.27661E-10
+1140	Difference in mobile phone use compared to two years previously	1.41089E-09
+1458	Cereal intake	5.76083E-73
+1873	Number of full brothers	1.47073E-12
+1883	Number of full sisters	1.15553E-06
+2624	Frequency of heavy DIY in last 4 weeks	6.47383E-05
+2634	Duration of heavy DIY	2.89941E-09
+4291	Number of attempts	7.46811E-11
+4825	Noisy workplace	1.24728E-13
+4836	Loud music exposure frequency	1.60187E-05
+20425	Ever worried more than most people would in similar situation	1.08132E-06
+20491	Someone to take to doctor when needed as a child	6.14566E-07
+20529	Victim of physically violent crime	8.42433E-07
+20530	Witnessed sudden violent death	5.1533E-05
+1150_1	Usual side of head for mobile phone use: Left	1.69138E-07
+1150_2	Usual side of head for mobile phone use: Right	1.31982E-07
+1150_3	Usual side of head for mobile phone use: Equally left and right	1.92432E-07
+129_irnt	Place of birth in UK - north co-ordinate	7.05466E-10
+130_irnt	Place of birth in UK - east co-ordinate	0.000294616
+1418_1	Milk type used: Full cream	2.33472E-08
+1418_2	Milk type used: Semi-skimmed	2.18524E-13
+1418_3	Milk type used: Skimmed	1.47031E-23
+1418_4	Milk type used: Soya	3.71537E-08
+1418_6	Milk type used: Never/rarely have milk	1.76173E-10
+1428_0	Spread type: Never/rarely use spread	3.94625E-24
+1428_1	Spread type: Butter/spreadable butter	1.04963E-50
+1428_3	Spread type: Other type of spread/margarine	4.17891E-30
+1438_irnt	Bread intake	4.46972E-56
+1448_1	Bread type: White	7.56273E-84
+1448_3	Bread type: Wholemeal or wholegrain	1.19967E-52
+1468_1	Cereal type: Bran cereal (e.g. All Bran, Branflakes)	4.89601E-05
+1468_2	Cereal type: Biscuit cereal (e.g. Weetabix)	0.00016237
+1468_3	Cereal type: Oat cereal (e.g. Ready Brek, porridge)	5.75574E-09
+1468_4	Cereal type: Muesli	1.60995E-57
+1468_5	Cereal type: Other (e.g. Cornflakes, Frosties)	4.10258E-30
+1508_1	Coffee type: Decaffeinated coffee (any type)	3.73685E-10
+1508_2	Coffee type: Instant coffee	2.67648E-25
+1508_3	Coffee type: Ground coffee (include espresso, filter etc)	1.46524E-64
+20003_1140860806	Treatment/medication code: ramipril	1.5405E-13
+20003_1140861958	Treatment/medication code: simvastatin	6.56804E-32
+20003_1140861998	Treatment/medication code: ventolin 100micrograms inhaler	2.55532E-12
+20003_1140864752	Treatment/medication code: lansoprazole	4.6468E-08
+20003_1140865634	Treatment/medication code: omeprazole	1.32003E-18
+20003_1140866738	Treatment/medication code: atenolol	2.61932E-16
+20003_1140868226	Treatment/medication code: aspirin	4.99797E-26
+20003_1140871310	Treatment/medication code: ibuprofen	3.59137E-19
+20003_1140879802	Treatment/medication code: amlodipine	2.10957E-19
+20003_1141146234	Treatment/medication code: atorvastatin	9.10814E-09
+20003_1141194794	Treatment/medication code: bendroflumethiazide	9.1233E-18
+20003_2038460150	Treatment/medication code: paracetamol	4.52999E-34
+20074_irnt	Home location at assessment - east co-ordinate (rounded)	0.000150395
+20075_irnt	Home location at assessment - north co-ordinate (rounded)	1.18954E-11
+20107_1	Illnesses of father: Heart disease	2.40952E-27
+20107_100	Illnesses of father: None of the above (group 1)	3.61573E-10
+20107_101	Illnesses of father: None of the above (group 2)	7.7268E-06
+20107_13	Illnesses of father: Prostate cancer	4.63467E-06
+20107_3	Illnesses of father: Lung cancer	1.33336E-06
+20107_6	Illnesses of father: Chronic bronchitis/emphysema	6.78596E-06
+20107_8	Illnesses of father: High blood pressure	1.28418E-17
+20107_9	Illnesses of father: Diabetes	2.33324E-13
+20110_1	Illnesses of mother: Heart disease	2.66911E-09
+20110_100	Illnesses of mother: None of the above (group 1)	5.69478E-14
+20110_101	Illnesses of mother: None of the above (group 2)	7.22311E-05
+20110_6	Illnesses of mother: Chronic bronchitis/emphysema	1.23876E-08
+20110_8	Illnesses of mother: High blood pressure	8.16183E-23
+20110_9	Illnesses of mother: Diabetes	2.52075E-20
+20111_1	Illnesses of siblings: Heart disease	1.31475E-14
+20111_100	Illnesses of siblings: None of the above (group 1)	1.07567E-37
+20111_12	Illnesses of siblings: Severe depression	4.94079E-08
+20111_8	Illnesses of siblings: High blood pressure	2.91527E-27
+20111_9	Illnesses of siblings: Diabetes	8.06903E-19
+20548_2	Manifestations of mania or irritability: I was more restless than usual	1.07437E-05
+22606_2	Workplace very noisy: Often	2.08893E-07
+22607_0	Workplace very cold: Rarely/never	1.08039E-05
+22607_1	Workplace very cold: Sometimes	1.68147E-08
+22610_1	Workplace full of chemical or other fumes: Sometimes	2.45825E-05
+22611_2	Workplace had a lot of cigarette smoke from other people smoking: Often	0.000116731
+22613_1	Worked with paints, thinners or glues: Sometimes	4.49935E-05
+22702_irnt	Home location - east co-ordinate (rounded)	3.89744E-05
+22704_irnt	Home location - north co-ordinate (rounded)	5.06495E-14
+24003_irnt	Nitrogen dioxide air pollution; 2010	5.30924E-07
+24004_irnt	Nitrogen oxides air pollution; 2010	4.18459E-08
+24016_irnt	Nitrogen dioxide air pollution; 2005	3.65829E-07
+24017_irnt	Nitrogen dioxide air pollution; 2006	2.05141E-07
+24018_irnt	Nitrogen dioxide air pollution; 2007	3.72927E-08
+2654_4	Non-butter spread type details: Soft (tub) margarine	2.61147E-09
+2654_6	Non-butter spread type details: Olive oil based spread (eg: Bertolli)	9.61774E-06
+6139_2	Gas or solid-fuel cooking/heating: A gas fire that you use regularly in winter time	9.77317E-06
+6139_3	Gas or solid-fuel cooking/heating: An open solid fuel fire that you use regularly in winter time	1.35468E-13
+6142_1	Current employment status: In paid employment or self-employed	5.79889E-12
+6142_2	Current employment status: Retired	9.92242E-07
+6142_4	Current employment status: Unable to work because of sickness or disability	8.47435E-27
+6142_6	Current employment status: Doing unpaid or voluntary work	7.62453E-05
+6143_1	Transport type for commuting to job workplace: Car/motor vehicle	4.63185E-11
+6143_2	Transport type for commuting to job workplace: Walk	0.000144391
+6143_3	Transport type for commuting to job workplace: Public transport	1.0619E-10
+6143_4	Transport type for commuting to job workplace: Cycle	7.37032E-10
+6144_4	Never eat eggs, dairy, wheat, sugar: Sugar or foods/drinks containing sugar	9.31895E-41
+6144_5	Never eat eggs, dairy, wheat, sugar: I eat all of the above	8.72771E-43
+6145_1	Illness, injury, bereavement, stress in last 2 years: Serious illness, injury or assault to yourself	1.16908E-14
+6145_100	Illness, injury, bereavement, stress in last 2 years: None of the above	8.98905E-37
+6145_2	Illness, injury, bereavement, stress in last 2 years: Serious illness, injury or assault of a close relative	0.000120329
+6145_3	Illness, injury, bereavement, stress in last 2 years: Death of a close relative	0.000303202
+6162_1	Types of transport used (excluding work): Car/motor vehicle	5.79778E-24
+6162_3	Types of transport used (excluding work): Public transport	1.01989E-22
+670_2	Type of accommodation lived in: A flat, maisonette or apartment	4.78539E-05
+699_irnt	Length of time at current address	1.65357E-13
+is_female	is_female, based on inferred genetic sex	2.70383E-08
