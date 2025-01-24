@@ -42,7 +42,7 @@ datasets <- gwasinfo()
 
 The whole dataseet is filtered with the `ieu-preprocess.R`.
 
-Finally, to remove (reduce) redundancy in ieu and ukbb, the two are intersected and only the ieu and non-redundant ukbb are used (i.e. when there are duplicates, priority is given to ieu). This is done with ukbb-ieugwas-intersect.R`.
+Finally, to remove (reduce) redundancy in ieu and ukbb, the two are intersected and only the ieu and non-redundant ukbb are used (i.e. when there are duplicates, priority is given to ieu). This is done with `ukbb-ieugwas-intersect.R`.
 
 ## Lift over to HG38 / GRCh38
 Most SNP datasets are HG19 / GRCh37. We port these over the GRch38 for ease of use in future analyses (syn / nonsyn, annotations, etc.). Could port eventually to T2T-CHM13. This is via `slurm` using the following syntax. We use "partial beds" to minimse file sizes, and array jobs for speed.
