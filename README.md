@@ -6,30 +6,13 @@ Most GWAS and related studies attempt to assign SNPs as causative by selecting S
 
 These analyses, which prioritise on per-SNP bases, ignore to fact that when one SNP in a specific region of the genome is causal of trait differences, it is highly likely that other SNPs in the same region are also causal, but with lower effects (it is necessarily true that one SNP has the largest effect). In addition, by focusing on genome-wide significant SNPs, large regions of the genome that may contain small-effect SNPs (or many small effect SNPs) are ignored. This is a critical problem because often we might expect that it is specifically these regions that are the most relevant for developing treatments. Why? SNPs with large effects can apparently segregate in the population without having *critical* effects.
 
-## Some literature
-This is very well phrased in the paper [Genetic architecture: the shape of the genetic contribution to human traits and disease](https://www.nature.com/articles/nrg.2017.101):
-
-*The clinical effect of drugs on LDL cholesterol level and cystic fibrosis illustrate the dichotomy between variation explained and its utility to drug development...Pharmacological inhibition of HMG-CoA reductase reduces the level of LDL cholesterol by approximately 30–40%...the common SNP most strongly associated with LDL cholesterol level near HMGCR, the gene encoding HMG-CoA reductase, explains 0.26% of the variance in LDL cholesterol level...even though the HMGCR locus harbours a common genetic variant that
-explains only a small amount of phenotypic variation, the pharmacological inhibition of HMG-CoA reductase is clinically beneficial...common variants near PCSK9, the gene encoding proprotein convertase subtilisin/kexin type 9, have small effects on LDL cholesterol level whereas pharmacological inhibition of PCSK9 has large effects...RANKL, the gene encoding receptor activator of nuclear factor κB ligand, harbours common variants of small effect on bone mineral density, yet pharmacological inhibition of RANKL has large effects on bone mineral density...Thus, small-effect-size SNPs can serve to highlight proteins that, when targeted with large-effect-size pharmaceuticals, can have large effects on disease risk...The amount of variance explained by a genetic variant does not always correlate with the suitability of the gene as a therapeutic target because drugs work on proteins; the base pair associated with the disease serves to help identify the causal protein. The relevance of the variation explained to the clinic should be measured by assessing the effect of pharmacological agents on the protein and its resultant effect on disease...perhaps because natural selection makes such perturbing genetic variants so rare that they lack statistical power for such an association, could still be a good drug target*
-
-Some additional background and motivation is here 
-[Specificity, length, and luck: How genes are prioritized by rare and common variant association studies Dec 2024 preprint](https://www.biorxiv.org/content/10.1101/2024.12.12.628073v1.full). This notes specifically that, as expected: 
-*GWAS prioritize genes near trait-specific variants, while burden tests prioritize trait-specific genes...burden tests and GWAS reveal different aspects of trait biology*
-
-This also gives a relatively precise (and narrow) definition of burden tests: "*Burden tests aggregate variants — typically loss-of-function (LoF) variants — within a gene to create a “burden genotype”, which is then tested gene-by-gene for association with phenotypes. This is similar to common-variant GWAS but focused on rare variants collapsed at the gene level...burden tests appear less polygenic and tend to prioritize genes that are seemingly more closely related to trait biology*"
-
-So here we ask whether we can detect these regions. We do this by averaging betas across regions. We can then correlate average beta across a region (median or mean), average absolute value of betas (median or mean), stdev (variance) of betas, etc. Furthermore, to remove the effects of regions with very large betas, we can remove the top N regions, (e.g. the top 1000). In many (all?) cases we might use *Spearman* to minimse the effect of outlier betas. Finally, we might want to look at general effects where we think there *should* be effects, for example, nonsyn mutations. So here we can use SNPEff or similar to find out which SNPSs (rsids) have which effects, and then plot or normalise the betas from those. In addition, we might wish to see which traits are more or less correlated with such cutoffs, which to some extent is an indication of their polygenicity (traits with low polygenicity should lose correlations quickly). Below I have specific code for doing these analyses.
-
-There are several interesting additional analyses for insight. First, we are interested in genomic regions in which average betas are high, but max beta or max -log10(pval) are low. These would (in general) be areas in which there are many small effect mutations but no large effect mutations that would normally be detected. We shouild compare to evolutionary constraint across the genome to see whether some disease have high/low average beta relative to constriant, with those having high beta being largely selected against. We could also check by look for consistnelry smaller betas of syn mutations in windows, plotting nonsyn avg effect vs syn avg effect (and intergenic, etc.). One could also window, collapse on LD (relatively high), and then average. One might also find regions with high betas in only a single disease.
-
-Note that to some extent this is analogous to burden tests, which almost always test on a *per gene* basis. Burden tests are unencumbered by LD (for the most part).
-
-We will test this below.
-
 ## Data
-The data we will use for uniformity is the UKBB. From the Neale Lab, we first filter on heritbalility,
-only taking those studies with h2 p-value < 0.0005.
-This brings us from a total of 4178 studies to 851 studies.
+### Download per study summary data
+#### UKBB
+The data we will use is the UKBB from the Neale Lab; and from the IEU GWAS resource.
+From the Neale Lab: [heritability scores](https://www.dropbox.com/s/8vca84rsslgbsua/ukb31063_h2_topline.02Oct2019.tsv.gz?dl=1)
+We first filter on heritbalility,
+only taking those studies with h2 p-value < 1e-5.
 
 Then we filter on notes:
 ``` 
@@ -40,18 +23,26 @@ isLowNeff;
 isMidNeff;
 isSexBias;
 ```
-
 Then we filter on repeated or obviously indirect effects or questionable traits, including:
 - Usual side of head for mobile phone use: Left
 - Cereal type: Muesli
 - Workplace very noisy: Often
 
+This is all implemented in the `ukbb-preprocess.R` script.
 
-Retain only:
-(1) 20548 Manifestations of mania or irritability only lowest p-value
+#### IEU GWAS
+First we grab all studies using the `ieugwasr` package and the following syntx:
+```
+datasets <- gwasinfo()
 
+### filter only on test
+!is.na(trait) & !grepl("TEST", trait, ignore.case = TRUE)
 
-### Download per study summary data 
+```
+
+The whole dataseet is filtered with the `ieu-preprocess.R`.
+
+Finally, to remove (reduce) redundancy in ieu and ukbb, the two are intersected and only the ieu and non-redundant ukbb are used (i.e. when there are duplicates, priority is given to ieu). This is done with ukbb-ieugwas-intersect.R`.
 
 ## Lift over to HG38 / GRCh38
 Most SNP datasets are HG19 / GRCh37. We port these over the GRch38 for ease of use in future analyses (syn / nonsyn, annotations, etc.). Could port eventually to T2T-CHM13. This is via `slurm` using the following syntax. We use "partial beds" to minimse file sizes, and array jobs for speed.
@@ -119,3 +110,23 @@ cut -f1,2 gwas_list_brief_info.txt | awk -F'\t' '
 >     print $1, abbrev;
 > }' > descriptions.txt
 ```
+
+## Some literature
+This is very well phrased in the paper [Genetic architecture: the shape of the genetic contribution to human traits and disease](https://www.nature.com/articles/nrg.2017.101):
+
+*The clinical effect of drugs on LDL cholesterol level and cystic fibrosis illustrate the dichotomy between variation explained and its utility to drug development...Pharmacological inhibition of HMG-CoA reductase reduces the level of LDL cholesterol by approximately 30–40%...the common SNP most strongly associated with LDL cholesterol level near HMGCR, the gene encoding HMG-CoA reductase, explains 0.26% of the variance in LDL cholesterol level...even though the HMGCR locus harbours a common genetic variant that
+explains only a small amount of phenotypic variation, the pharmacological inhibition of HMG-CoA reductase is clinically beneficial...common variants near PCSK9, the gene encoding proprotein convertase subtilisin/kexin type 9, have small effects on LDL cholesterol level whereas pharmacological inhibition of PCSK9 has large effects...RANKL, the gene encoding receptor activator of nuclear factor κB ligand, harbours common variants of small effect on bone mineral density, yet pharmacological inhibition of RANKL has large effects on bone mineral density...Thus, small-effect-size SNPs can serve to highlight proteins that, when targeted with large-effect-size pharmaceuticals, can have large effects on disease risk...The amount of variance explained by a genetic variant does not always correlate with the suitability of the gene as a therapeutic target because drugs work on proteins; the base pair associated with the disease serves to help identify the causal protein. The relevance of the variation explained to the clinic should be measured by assessing the effect of pharmacological agents on the protein and its resultant effect on disease...perhaps because natural selection makes such perturbing genetic variants so rare that they lack statistical power for such an association, could still be a good drug target*
+
+Some additional background and motivation is here 
+[Specificity, length, and luck: How genes are prioritized by rare and common variant association studies Dec 2024 preprint](https://www.biorxiv.org/content/10.1101/2024.12.12.628073v1.full). This notes specifically that, as expected: 
+*GWAS prioritize genes near trait-specific variants, while burden tests prioritize trait-specific genes...burden tests and GWAS reveal different aspects of trait biology*
+
+This also gives a relatively precise (and narrow) definition of burden tests: "*Burden tests aggregate variants — typically loss-of-function (LoF) variants — within a gene to create a “burden genotype”, which is then tested gene-by-gene for association with phenotypes. This is similar to common-variant GWAS but focused on rare variants collapsed at the gene level...burden tests appear less polygenic and tend to prioritize genes that are seemingly more closely related to trait biology*"
+
+So here we ask whether we can detect these regions. We do this by averaging betas across regions. We can then correlate average beta across a region (median or mean), average absolute value of betas (median or mean), stdev (variance) of betas, etc. Furthermore, to remove the effects of regions with very large betas, we can remove the top N regions, (e.g. the top 1000). In many (all?) cases we might use *Spearman* to minimse the effect of outlier betas. Finally, we might want to look at general effects where we think there *should* be effects, for example, nonsyn mutations. So here we can use SNPEff or similar to find out which SNPSs (rsids) have which effects, and then plot or normalise the betas from those. In addition, we might wish to see which traits are more or less correlated with such cutoffs, which to some extent is an indication of their polygenicity (traits with low polygenicity should lose correlations quickly). Below I have specific code for doing these analyses.
+
+There are several interesting additional analyses for insight. First, we are interested in genomic regions in which average betas are high, but max beta or max -log10(pval) are low. These would (in general) be areas in which there are many small effect mutations but no large effect mutations that would normally be detected. We shouild compare to evolutionary constraint across the genome to see whether some disease have high/low average beta relative to constriant, with those having high beta being largely selected against. We could also check by look for consistnelry smaller betas of syn mutations in windows, plotting nonsyn avg effect vs syn avg effect (and intergenic, etc.). One could also window, collapse on LD (relatively high), and then average. One might also find regions with high betas in only a single disease.
+
+Note that to some extent this is analogous to burden tests, which almost always test on a *per gene* basis. Burden tests are unencumbered by LD (for the most part).
+
+We will test this below.
