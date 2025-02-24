@@ -1,5 +1,6 @@
 # data files
-./data
+/data/
+/filtered-ieugwas-vcf/
 
 # History files
 .Rhistory

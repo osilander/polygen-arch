@@ -4,10 +4,10 @@ This repo summarises the justifications, some literature, and the methods for do
 ## Primary Aim
 Most GWAS and related studies attempt to assign SNPs as causative by selecting SNPs on the basis of p-values (sometimes with some statistical corrections for LD or with additional data such as eQTL information). These p-values are based on the combination of (1) betas (effect sizes) and (2) standard error. When looking across studies, these are determined at least partially by sample size, i.e. the relative number of cases and controls, and partially by the precision with which traits can be measured. Within studies, this is determined at least partially by the frequency of polymorphisms (rare vs. common) and the choice of statistical test (e.g. logistical regression vs. chi-square).
 
-These analyses, which prioritise on per-SNP bases, ignore to fact that when one SNP in a specific region of the genome is causal of trait differences, it is highly likely that other SNPs in the same region are also causal, but with lower effects (it is necessarily true that one SNP has the largest effect). In addition, by focusing on genome-wide significant SNPs, large regions of the genome that may contain small-effect SNPs (or many small effect SNPs) are ignored. This is a critical problem because often we might expect that it is specifically these regions that are the most relevant for developing treatments. Why? SNPs with large effects can apparently segregate in the population without having *critical* effects.
+These analyses, which prioritise on per-SNP bases, often ignore that fact that when one SNP in a specific region of the genome is causal of trait differences, it is highly likely that other SNPs in the same region are also causal, but with lower effects (it is necessarily true that one SNP has the largest effect). In addition, by focusing on genome-wide significant SNPs, large regions of the genome that may contain small-effect SNPs (or many small effect SNPs) are ignored. This is a critical problem because often we might expect that it is specifically these regions that are the most relevant for developing treatments. Why? Only SNPs with small effects on critical targets can segregate in the population. Those with large effects (but which prove that the target *can* be influenced by large effects) do not usually segregate. Phrased so well here: *small-effect-size SNPs can serve to highlight proteins that, when targeted with large-effect-size pharmaceuticals, can have large effects on disease risk.*
 
 ## Data
-### Download per study summary data
+### Per study summary data
 #### UKBB
 The data we will use is the UKBB from the Neale Lab; and from the IEU GWAS resource.
 From the Neale Lab: [heritability scores](https://www.dropbox.com/s/8vca84rsslgbsua/ukb31063_h2_topline.02Oct2019.tsv.gz?dl=1)
@@ -44,19 +44,72 @@ The whole dataseet is filtered with the `ieu-preprocess.R`.
 
 Finally, to remove (reduce) redundancy in ieu and ukbb, the two are intersected and only the ieu and non-redundant ukbb are used (i.e. when there are duplicates, priority is given to ieu). This is done with `ukbb-ieugwas-intersect.R`.
 
-## Lift over to HG38 / GRCh38
-Most SNP datasets are HG19 / GRCh37. We port these over the GRch38 for ease of use in future analyses (syn / nonsyn, annotations, etc.). Could port eventually to T2T-CHM13. This is via `slurm` using the following syntax. We use "partial beds" to minimse file sizes, and array jobs for speed.
+### Downloading
+### UKBB
+UKBB studies are named with a phenotype number such as 1100, 1697, etc. The vcf files for these (annotated) are available 
+
+### IEU GWAS
+
+`ieu-gwas-original.txt` contains descriptions for 49,455 studies.
+
+The ieu gwas data are named by study group and number, which does not correspond to 
+the ukbb number. 
+For example, `ieu-b-4808` or `ukb-a-283`. These can be downloaded by incorporating
+an absolute file path and checking that it is contained in one of two locations.
+
+Notes: file `filtered-ieugwas-traits.txt` contains the study number and full description. 
+`filtered-ieugwas-studies.txt` contains the numbers only that can be used for downloading (335 in total)
+
+`filtered-ieugwas-vcf` DIRECTORY contains the downloaded vcfs. There are 316 of those. 
+`small-files` DIRECTORY contains the other 19 "missing" studies, those are all vcfs less than 40Mb
+(zipped), total range from 232Kb to 39Mb.
+
+Further filtering based on average effect size for 1000 SNPs reduced this to 270, 
+which was used for the 2025-02-19 analysis. This filtering removed studies with average effects less than 
+1e-4 and greater than 2e2 (or something)
+
+`filtered-ukbb-traits.txt` contains 256 studies.
+
+`ukbb-ieugwas-intersect.txt` contains 161 studies and descriptions, none of which are in the `filtered-ieugwas-vcf` 
+and despite some seeming non-heritable, are actually strong, e.g. "drive fast than speed limit" has heritbalilityat z7.
+
+So the next step is to pull the vcf files for the `ukbb-ieugwas-intersect.txt` files. In this, do not take studies that match this: `\b(?!\d)[A-Z_][A-Z0-9_]*\b` as they are not available from ieugwas. Furthermore studies like 20002_1074 are named 20002#1074 in the ieugwas, so replace underscores.
+Cannot find with ukbb ID in ieugwas manifest:
+1697 Comparative height size at age 10
+20117_0 Alcohol drinker status: Never
+and several others. Removing those gives 128 studies in total.
+
+No longer liftover to HG38 to keep things simple.
+
+(chrom sizes)[https://hgdownload.soe.ucsc.edu/goldenPath/hg19/bigZips/hg19.chrom.sizes]
+`ml BEDTools/2.25.0-GCC-7.4.0`
+
+Move out small `vcf` files (seems like a reasonable quality control):
+`find . -type f -name "*.vcf.gz" -size -40M -exec mv {} ../small-files/ \;`
+
+improve above step: output total SNPs for each vcf and remove those with fewer than 1.5M SNPs. To count:
 
 ```
-# Input and output directories
-INPUT_DIR="partial-beds-GRCh37"       # Directory with input BED files (GRCh37)
-OUTPUT_DIR="partial-beds-GRCh38"      # Directory for output BED files (GRCh38)
-CHAIN_FILE="GRCh37_to_GRCh38.chain" # Chain file for liftover
-LOG_DIR="logs"                        # Directory for logs
+# also checks whether files are complete.
 
-./liftOver "$INPUT_BED" "$CHAIN_FILE" "$OUTPUT_BED" "$UNLIFTED_BED" >> "$LOG_DIR/liftover_$SLURM_ARRAY_TASK_ID.log" 2>&1
+for G in *gz; do echo $G; echo $G >> vcf-snp-counts.txt;
+zcat $G | grep PASS | wc -l >> vcf-snp-counts.txt; done
+```
+
 
 ```
+ml VCFtools/0.1.15-GCC-9.2.0-Perl-5.30.1
+ml BCFtools/1.19-GCC-11.3.0
+```
+To do this we use an array job submitted wtih `effect_sizes.slurm`.
+
+Glancing through some files we see that some effects sizes are huge (> 1000). These need to be trimmed or removed.
+We get an average for 1000 samples rows and then plot those to see if there is some natural cutoff.
+To do that there is `bash` script.
+
+There is a natural cutoff where the average/median should be less than 0.5 and anything where 
+median is less than 1e-4 *and* mean is less than 3e-4 should be discarded.
+Out of 316 studies this yields 270.
 
 ### Genomic windows
 Use `bedtools` to divide the genome into regions.
