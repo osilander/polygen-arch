@@ -87,7 +87,7 @@ No longer liftover to HG38 to keep things simple.
 Move out small `vcf` files (seems like a reasonable quality control):
 `find . -type f -name "*.vcf.gz" -size -40M -exec mv {} ../small-files/ \;`
 
-improve above step: output total SNPs for each vcf and remove those with fewer than 1.5M SNPs. To count:
+improve above step: output total SNPs for each vcf and remove those with fewer than 1.8M SNPs (there is a clear natural cutoff here). To count:
 
 ```
 # also checks whether files are complete.
@@ -95,7 +95,10 @@ improve above step: output total SNPs for each vcf and remove those with fewer t
 for G in *gz; do echo $G; echo $G >> vcf-snp-counts.txt;
 zcat $G | grep PASS | wc -l >> vcf-snp-counts.txt; done
 ```
+ieu-a-1009.vcf.gz is incomplete
+ieu-b-4813.vcf.gz is incomplete
 
+This leaves 434 studies in total.
 
 ```
 ml VCFtools/0.1.15-GCC-9.2.0-Perl-5.30.1
@@ -103,13 +106,28 @@ ml BCFtools/1.19-GCC-11.3.0
 ```
 To do this we use an array job submitted wtih `effect_sizes.slurm`.
 
+```
+sbatch --array=1-434 effect_sizes.slurm
+```
+
 Glancing through some files we see that some effects sizes are huge (> 1000). These need to be trimmed or removed.
 We get an average for 1000 samples rows and then plot those to see if there is some natural cutoff.
 To do that there is `bash` script.
 
 There is a natural cutoff where the average/median should be less than 0.5 and anything where 
-median is less than 1e-4 *and* mean is less than 3e-4 should be discarded.
-Out of 316 studies this yields 270.
+median is less than 1e-4 *or* mean is greater than 0.5 should be discarded.
+Out of 434 studies this yields 384.
+
+### Full set of stats
+With the redueced set of files we get the full required seet of stats including beta, 
+abs(beta), beta^2, pval, MAF; put in `.bed` format, sort, compress, and index.
+
+We run `effect_sizes.slurm`.
+
+NOTE THE FIELDS:
+```
+chrom, pos, pos+1, es, abs_es, es_sq, pval, af
+```
 
 ### Genomic windows
 Use `bedtools` to divide the genome into regions.
