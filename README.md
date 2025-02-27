@@ -79,7 +79,6 @@ Cannot find with ukbb ID in ieugwas manifest:
 20117_0 Alcohol drinker status: Never
 and several others. Removing those gives 128 studies in total.
 
-No longer liftover to HG38 to keep things simple.
 
 (chrom sizes)[https://hgdownload.soe.ucsc.edu/goldenPath/hg19/bigZips/hg19.chrom.sizes]
 `ml BEDTools/2.25.0-GCC-7.4.0`
@@ -116,10 +115,15 @@ To do that there is `bash` script.
 
 There is a natural cutoff where the average/median should be less than 0.5 and anything where 
 median is less than 1e-4 *or* mean is greater than 0.5 should be discarded.
-Out of 434 studies this yields 384.
+Out of 434 studies this yields 408.
+
+Here is the step in `R`:
+```
+write.table(efs[which(efs$Median>0.0001 & efs$Median<0.5),1], file="~/Desktop/good-value-studies.txt", sep="\t",quote=F, row.names=F)
+```
 
 ### Full set of stats
-With the redueced set of files we get the full required seet of stats including beta, 
+With the redueced set of files we get the full required set of stats including beta, 
 abs(beta), beta^2, pval, MAF; put in `.bed` format, sort, compress, and index.
 
 We run `effect_sizes.slurm`.
@@ -128,9 +132,15 @@ NOTE THE FIELDS:
 ```
 chrom, pos, pos+1, es, abs_es, es_sq, pval, af
 ```
+ukb-d-2654_4-per is repeatedly not indexed. This is removed from the data.
+
+Now we run `get-windowed-values.slurm
 
 ### Genomic windows
 Use `bedtools` to divide the genome into regions.
+
+### Additional QC
+ukb-d-20453 has no descriptors that I can find. Removed, for a total of 406 studies.
 
 ### UMAP analysis
 (On previous data) - use windowed shrucnk average betas, ~64K in total at 50Kbp bin sizes. Combining all files (unfiltered for study similarity or heritbalility) with script then clean for `NA` rows:
@@ -142,45 +152,8 @@ Remove cols with excess `NA` values:
 *Then* remove rows with any NA values:
 ```data_clean <- na.omit(filtered_data)```
 
-This yields a matrix of 25548 rows with 2214 studies.
-
 ## get desciptors
-This is a bit meessy, now like this:
-```
-cut -f1,2 gwas_list_brief_info.txt | awk -F'\t' '
-> tolower($1) ~ /(ukb|ieu)/ {
->     # Replace dashes with periods in the first column
->     gsub("-", ".", $1);
->
->     # Work with the second field (descriptor) directly
->     second_column = $2;
->
->     # Convert the second column to lowercase
->     second_column = tolower(second_column);
->
->     # Remove all non-alphanumeric characters (keep letters, numbers, and spaces)
->     gsub(/[^a-z0-9 ]/, "", second_column);
->     # Trim leading/trailing spaces
->     gsub(/^[ \t]+|[ \t]+$/, "", second_column);
->
->     # Split on spaces into up to three words
->     split(second_column, words, / +/);
->
->     # Build abbreviation
->     abbrev = "";
->     if (length(words[1]) > 0) abbrev = substr(words[1], 1, 6);
->     if (length(words[2]) > 0) abbrev = abbrev "_" substr(words[2], 1, 6);
->     if (length(words[3]) > 0) abbrev = abbrev "_" substr(words[3], 1, 6);
->
->     # Truncate to max 15 chars
->     if (length(abbrev) > 15) {
->         abbrev = substr(abbrev, 1, 15);
->     }
->
->     # Output the final result
->     print $1, abbrev;
-> }' > descriptions.txt
-```
+With assistance from ChatGPT, these are given in the trait_abbrev.txt file
 
 ## Some literature
 This is very well phrased in the paper [Genetic architecture: the shape of the genetic contribution to human traits and disease](https://www.nature.com/articles/nrg.2017.101):

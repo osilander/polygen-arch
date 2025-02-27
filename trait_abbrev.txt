@@ -1,0 +1,407 @@
+file_name	trait	trait_abbrev
+ieu-a-1002	Leptin	Leptin
+ieu-a-1037	Difference in height between childhood and adulthood	HtChdAdu
+ieu-a-1040	Difference in height between adolescence and adulthood	HtAdoAdu
+ieu-a-1049	Iron	Iron
+ieu-a-1050	Ferritin	Ferritin
+ieu-a-1052	Transferrin	Transfrin
+ieu-a-1054	Gout	Gout
+ieu-a-1096	Childhood obesity	ChObesity
+ieu-a-113	Neo-agreeableness	NeoAgree
+ieu-a-114	Neo-conscientiousness	NeoConsc
+ieu-a-115	Neo-extraversion	NeoExtra
+ieu-a-116	Neo-neuroticism	NeoNeuro
+ieu-a-117	Neo-openness to experience	NeoOpen
+ieu-a-1183	ADHD	ADHD
+ieu-a-1185	Autism Spectrum Disorder	AutismSD
+ieu-a-1186	Anorexia Nervosa	Anorexia
+ieu-a-1189	Obsessive Compulsive Disorder	OCD
+ieu-a-29	Birth length	BirthLen
+ieu-a-789	Urate	Urate
+ieu-b-103	HbA1C	HbA1C
+ieu-b-113	Fasting glucose	FastGlu
+ieu-b-115	Fasting insulin	FastIns
+ieu-b-117	HOMA-B	HOMA-B
+ieu-b-118	HOMA-IR	HOMA-IR
+ieu-b-18	multiple sclerosis	MS
+ieu-b-4764	C-reactive protein	CRP
+ieu-b-4816	Body mass index	BMI
+ieu-b-4818	Systolic blood pressure	SysBP
+ieu-b-4819	Age at first birth	Age1stBr
+ieu-b-4822	Age at menarche	AgeMenar
+ieu-b-4824	Age at menopause	AgeMenop
+ieu-b-4825	Cigarettes smoked per day	CigsDay
+ieu-b-4827	Number of children ever born measurement	NumChild
+ieu-b-4829	Waist-hip ratio	WHRatio
+ieu-b-4832	Estimated glomerular filtration rate	eGFR
+ieu-b-4833	Alcohol consumption	AlcCons
+ieu-b-4835	Years of schooling	EduYears
+ieu-b-4837	Cognitive function	CogFunc
+ieu-b-4839	Depressive symptoms	DepressS
+ieu-b-4841	HbA1c	HbA1C
+ieu-b-4843	HDL cholesterol	HDLchol
+ieu-b-4846	LDL cholesterol	LDLchol
+ieu-b-4847	Neuroticism	Neurotic
+ieu-b-4849	Triglycerides	Triglyc
+ieu-b-4852	Wellbeing	Wellbein
+ieu-b-4853	Forced expiratory volume in 1-second	FEV1
+ieu-b-4856	FEV1/FVC	FEV1FVC
+ieu-b-4858	Ever smoked	EverSmok
+ieu-b-4859	Physical activity	PhysAct
+ieu-b-29	basophil cell count	BasoCt
+ieu-b-7	Parkinson's disease	ParkDis
+ieu-b-33	eosinophil cell count	EosCt
+ieu-b-31	monocyte cell count	MonoCt
+ieu-b-34	neutrophil cell count	NeutCt
+ieu-b-32	lymphocyte cell count	LymphCt
+ieu-b-30	white blood cell count	WBCcount
+ieu-b-4879	telomere length	TeloLen
+ieu-b-42	schizophrenia	Schizo
+ieu-a-1087	Chronotype	Chrono
+ieu-b-4812	25 hydroxyvitamin D level	VitD_25
+ieu-b-41	bipolar disorder	Bipolar
+ieu-a-31	Inflammatory bowel disease	IBD
+ieu-b-73	Alcoholic drinks per week	AlcWk
+ukb-a-357	Underlying (primary) cause of death: ICD10: E85.4 Organ-limited amyloidosis	AmyloidO
+ukb-a-358	Underlying (primary) cause of death: ICD10: J84.1 Other interstitial pulmonary diseases with fibrosis	PulmFib
+ukb-d-4803_0	Tinnitus: No, never	TinnNo
+ukb-d-20544_15	Mental health problems ever diagnosed by a professional: Anxiety, nerves or generalized anxiety disorder	Anxiety
+ukb-d-20117_2	Alcohol drinker status: Current	AlcCur
+ukb-d-4968	FI4 : positional arithmetic	FI4_PosA
+ukb-d-20529	Victim of physically violent crime	PhysViol
+ukb-d-30500_irnt	Microalbumin in urine	MicroAlb
+ukb-d-22607_1	Workplace very cold: Sometimes	ColdWork
+ukb-d-4979	FI5 : family relationship calculation	FI5_FamR
+ukb-d-20421	Ever felt worried, tense, or anxious for most of a month or longer	AnxLong
+ukb-d-20126_0	Bipolar and major depression status: No Bipolar or Depression	NoBPDep
+ukb-d-22506_114	Tobacco smoking: Never smoked	NeverSmk
+ukb-d-4990	FI6 : conditional arithmetic	FI6_Cond
+ukb-d-20500	Ever suffered mental distress preventing usual activities	MentDis
+ukb-d-4957	FI3 : word interpolation	FI3_Word
+ukb-d-30740_irnt	Glucose	Glucose
+ukb-d-20544_11	Mental health problems ever diagnosed by a professional: Depression	DepressD
+ukb-d-20499	Ever sought or received professional help for mental distress	MentHelp
+ukb-a-339	Used an inhaler for chest within last hour	Inhaler
+ukb-a-528	Diagnoses - main ICD10: G56 Mononeuropathies of upper limb	MonoUL
+ukb-a-525	Diagnoses - main ICD10: F31 Bipolar affective disorder	BipolarD
+ukb-a-368	Work/job satisfaction	JobSat
+ukb-d-22606_2	Workplace very noisy: Often	NoiseJob
+ukb-d-5012	FI8 : chained arithmetic	FI8_ChnA
+ukb-a-351	Length of menstrual cycle	MenstrLn
+ukb-d-20546_3	Substances taken for depression: Medication prescribed to you (for at least two weeks)	DepMed
+ukb-a-340	Hearing aid user	HearingA
+ukb-a-392	Maximum workload during fitness test	MaxWork
+ukb-a-527	Diagnoses - main ICD10: G47 Sleep disorders	SleepDis
+ukb-a-369	Health satisfaction	HealthSat
+ukb-a-302	Hair/balding pattern: Pattern 3	HairP3
+ukb-a-197	Prospective memory result	MemPros
+ukb-a-516	Duration walking for pleasure	WalkDur
+ukb-d-30060_irnt	Mean corpuscular haemoglobin concentration	MCHC
+ukb-a-376	Ever unenthusiastic/disinterested for a whole week	Unenthus
+ukb-d-30780_irnt	LDL direct	LDLDir
+ieu-b-5067	Alzheimer's disease	AlzDis
+ukb-a-381	Leg pain on walking	LegPain
+ukb-a-367	Happiness	Happiness
+ukb-a-477	Pain type(s) experienced in last month: Pain all over the body	PainAll
+ukb-a-393	Maximum heart rate during fitness test	MaxHR
+ieu-b-69	sepsis	Sepsis
+ukb-a-301	Hair/balding pattern: Pattern 2	HairP2
+ukb-a-371	Friendships satisfaction	FrndSat
+ukb-a-326	Had other major operations	MajOp
+ukb-d-30690_irnt	Cholesterol	Cholest
+ukb-a-263	Weight change compared with 1 year ago	WtChg1Y
+ukb-a-44	Townsend deprivation index at recruitment	TDI
+ukb-a-363	Pulse rate	PulseRt
+ieu-b-4877	smoking initiation	SmokeInit
+ieu-a-996	Eczema	Eczema
+ukb-a-260	Tobacco smoking: Ex-smoker	ExSmoker
+ukb-a-15	Daytime dozing / sleeping (narcolepsy)	Narcolep
+ukb-d-30850_irnt	Testosterone	Testost
+ukb-a-334	Potassium in urine	UrineK
+ukb-a-225	Smoking status: Current	SmokeCur
+ukb-a-257	Hearing difficulty/problems: Yes	HearingD
+ukb-a-16	Current tobacco smoking	SmokeCur
+ieu-a-1090	Type 2 diabetes	T2D
+ukb-d-30890_irnt	Vitamin D	VitD
+ukb-a-224	Smoking status: Previous	SmokePrev
+ukb-a-303	Hair/balding pattern: Pattern 4	HairP4
+ukb-a-198	Birth weight	BirthWt
+ukb-d-30810_irnt	Phosphate	Phosphat
+ukb-a-199	Mean time to correctly identify matches	MatchTm
+ukb-a-9	Sleep duration	SleepDur
+ukb-d-30670_irnt	Urea	Urea
+ieu-b-47	Urinary sodium-potassium ratio	NaK_U
+ukb-a-333	Creatinine (enzymatic) in urine	UrineCr
+ukb-d-30280_irnt	Immature reticulocyte fraction	IRF
+ukb-d-20116_0	Smoking status: Never	SmokeNev
+ukb-a-10	Getting up in morning	WakeUp
+ukb-a-12	Nap during day	NapDay
+ukb-d-30600_irnt	Albumin	Albumin
+ukb-d-2395_1	Hair/balding pattern: Pattern 1	HairP1
+ukb-a-13	Sleeplessness / insomnia	Insomnia
+ieu-b-4964	Pan cancer	PanCanc
+ukb-a-335	Sodium in urine	UrineNa
+ukb-a-196	Fluid intelligence score	FluInt
+ieu-b-45	Fresh fruit intake	FruitInt
+ukb-a-513	Usual walking pace	WalkPace
+ukb-d-30650_irnt	Aspartate aminotransferase	AST
+ukb-a-338	Peak expiratory flow (PEF)	PEF
+ukb-d-30680_irnt	Calcium	Calcium
+ukb-a-500	Heel bone mineral density (BMD) T-score  automated	BMD_T
+ukb-d-30070_irnt	Red blood cell (erythrocyte) distribution width	RBC_DW
+ukb-d-30030_irnt	Haematocrit percentage	HctPct
+ukb-a-17	Past tobacco smoking	PastSmk
+ieu-b-4959	Malignant non-melanoma skin cancer	NMSC
+ukb-d-30620_irnt	Alanine aminotransferase	ALT
+ukb-d-30180_irnt	Lymphocyte percentage	LymphPct
+ukb-d-30860_irnt	Total protein	TotProt
+ieu-b-108	apolipoprotein B	ApoB
+ukb-d-30020_irnt	Haemoglobin concentration	HbConc
+ukb-a-11	Morning/evening person (chronotype)	MornEve
+ukb-d-30140_irnt	Neutrophill count	NeutCt
+ukb-d-30120_irnt	Lymphocyte count	LymphCt
+ieu-b-4974	LRTI (critical care)	LRTI_CC
+ukb-d-30200_irnt	Neutrophill percentage	NeutPct
+ukb-a-379	Hand grip strength (right)	GripR
+ieu-b-4977	Pneumonia (28 day death in critical care)	Pneu28D
+ukb-d-30750_irnt	Glycated haemoglobin	GlyHb
+ukb-a-251	Overall health rating	HealthR
+ieu-b-4982	Sepsis (critical care)	SepsCC
+ieu-b-106	FEV1/FVC < 0.7	FEV1FVC7
+ieu-b-5063	URTI	URTI
+ukb-b-14576	Wears glasses or contact lenses	Glasses
+ieu-b-4979	Pneumonia (death)	PneuDth
+ukb-d-30700_irnt	Creatinine	Creat
+ieu-b-4970	Cellulitis	Cellulit
+ieu-b-4965	Colorectal cancer	CRC
+ukb-b-2346	Duration of moderate activity	ModActD
+ieu-b-4878	haemotological cancer	HematCan
+ukb-d-30770_irnt	IGF-1	IGF1
+ieu-b-4978	Pneumonia (critical care)	PneuCC
+ukb-d-30000_irnt	White blood cell (leukocyte) count	WBC_Ct
+ukb-a-359	Diastolic blood pressure  automated reading	DiaBP
+ieu-b-4973	LRTI	LRTI
+ieu-b-4981	Sepsis (28 day death in critical care)	Sep28D
+ieu-b-4975	Osteomyelitis	OsteoM
+ukb-b-12417	Nitrogen oxides air pollution; 2010	NOxPol
+ieu-b-4976	Pneumonia	Pneumon
+ukb-d-30010_irnt	Red blood cell (erythrocyte) count	RBC_Ct
+ukb-b-11303	Father's age at death	F_AgeD
+ukb-b-6244	Exposure to tobacco smoke outside home	SHSmoke
+ieu-b-4969	Melanoma skin cancer	Melanoma
+ieu-b-4972	Endocarditis	EndoC
+ieu-b-4967	Appendicitis	Appendix
+ieu-b-4980	Sepsis	Sepsis
+ukb-a-336	Forced vital capacity (FVC)	FVC
+ukb-b-2535	Falls in the last year	Falls1Y
+ieu-b-5065	UTI	UTI
+ieu-a-965	Lung adenocarcinoma	LungAden
+ukb-b-12687	Mother's age at death	M_AgeD
+ieu-b-4971	Cholecystitits	CholeCys
+ukb-a-276	Leg fat-free mass (right)	LegFFM_R
+ukb-b-8089	Cooked vegetable intake	CookVeg
+ukb-a-272	Impedance of arm (right)	ImpArm_R
+ukb-b-2909	Variation in diet	DietVar
+ukb-a-382	Waist circumference	WaistCir
+ukb-b-1260	Spells in hospital	HospStay
+ukb-b-7408	Average total household income before tax	HH_Inc
+ukb-a-388	Hip circumference	HipCir
+ukb-a-268	Basal metabolic rate	BMR
+ukb-a-269	Impedance of whole body	ImpBody
+ieu-a-967	Squamous cell lung cancer	SCLC
+ukb-b-13423	Breastfed as a baby	BreastFd
+ukb-b-969	Time spend outdoors in summer	OutSum
+ukb-b-4982	Able to confide	Confide
+ukb-b-19066	Reproduciblity of spirometry measurement using ERS/ATS criteria	SpiroRep
+ukb-b-2993	Duration of light DIY	DIY_Lt
+ukb-b-7422	Use of sun/uv protection	SunProt
+ieu-b-4760	Number of children	NumChild
+ukb-b-5237	Coffee intake	Coffee
+ukb-a-270	Impedance of leg (right)	ImpLeg_R
+ukb-a-249	Weight	Weight
+ukb-a-275	Leg fat mass (right)	LegFM_R
+ukb-b-4549	Drive faster than motorway speed limit	Speeding
+ukb-a-291	Trunk fat mass	TrunkFM
+ukb-a-265	Whole body fat mass	BodyFM
+ukb-b-16998	Duration of walks	WalkDur
+ukb-b-6066	Tea intake	TeaInt
+ukb-a-283	Arm fat mass (right)	ArmFM_R
+ukb-b-19373	Duration to first press of snap-button in each round	SnapRT
+ukb-b-13932	Duration of vigorous activity	VigActD
+ukb-b-14898	Water intake	WaterInt
+ukb-a-195	Sitting height	SitHgt
+ukb-b-14203	Hot drink temperature	HotDrkT
+ukb-b-2148	Facial ageing	FaceAge
+ukb-b-13823	Time to complete round	RoundTm
+ukb-b-2830	Financial situation satisfaction	FinSat
+ukb-b-11971	Pulse wave Arterial Stiffness index	PWASI
+ieu-b-105	FVC	FVC
+ukb-b-4256	Lifetime number of sexual partners	SexPart
+ieu-b-107	apolipoprotein A-I	ApoA1
+ukb-b-17400	Snoring	Snoring
+ukb-b-5262	Relative age voice broke	VoiceAge
+ukb-b-3666	Family relationship satisfaction	FamSat
+ukb-b-8778	Pulse wave peak to peak time	PW_P2P
+ieu-b-111	triglycerides	Triglyc
+ukb-b-2634	Duration of heavy DIY	DIY_Hvy
+ukb-b-11598	Pulse wave reflection index	PWRI
+ieu-b-4955	Lung cancer	LungCan
+ukb-b-4630	Neuroticism score	Neurotic
+ukb-b-9937	Had major operations	MajOp
+ukb-b-18099	Qualifications: O levels/GCSEs or equivalent	GCSEs
+ukb-a-389	Standing height	StandHgt
+ukb-b-5945	Relative age of first facial hair	FacialH
+ukb-b-3357	Birth weight of first child	Bwt1stC
+ukb-b-13352	Vascular/heart problems diagnosed by doctor: None of the above	NoVascH
+ukb-b-2091	Noisy workplace	NoiseWP
+ukb-b-20175	Systolic blood pressure, automated reading	SysBP_A
+ukb-b-18103	Pulse rate, automated reading	PulseA
+ukb-b-9981	Sensitivity / hurt feelings	Sensitive
+ukb-b-13653	Worry too long after embarrassment	WorryEmb
+ukb-b-2709	Year ended full time education	EduYr
+ukb-b-7992	Diastolic blood pressure, automated reading	DiaBP_A
+ukb-b-4650	Comparative body size at age 10	Body10
+ukb-b-6519	Worrier / anxious feelings	Anxious
+ukb-b-8463	Back pain for 3+ months	Back3M
+ukb-b-15418	Duration screen displayed	ScreenTm
+ukb-b-14180	Mood swings	MoodSwg
+ukb-b-19809	Fed-up feelings	FedUp
+ukb-b-18994	Miserableness	Miserabl
+ukb-b-19277	Intra-ocular pressure, corneal-compensated (right)	IOP_R
+ukb-b-13764	Long-standing illness, disability or infirmity	LongIll
+ukb-b-6991	Seen doctor (GP) for nerves, anxiety, tension or depression	GP_Anx
+ukb-b-18541	Ever used hormone-replacement therapy (HRT)	UsedHRT
+ukb-b-13354	Whole body fat-free mass	BodyFFM
+ukb-b-10169	Guilty feelings	Guilt
+ukb-b-14540	Whole body water mass	BodyH2O
+ukb-b-17409	Trunk fat-free mass	TrunkFFM
+ukb-b-9685	Trunk predicted mass	TrunkPM
+ukb-b-13799	Qualifications: Other professional qualifications eg: nursing, teaching	ProfQual
+ukb-b-14147	Risk taking	RiskTak
+ukb-b-8906	Knee pain for 3+ months	Knee3M
+ukb-b-9838	Pain type(s) experienced in last month: Back pain	BackP_M
+ukb-b-14961	Other serious medical condition/disability diagnosed by doctor	OtherMed
+ukb-b-16407	Trunk fat percentage	TrunkFP
+ukb-b-2303	Body mass index (BMI)	BMI
+ukb-b-18596	Pain type(s) experienced in last month: Neck or shoulder pain	NeckP_M
+ukb-b-16254	Pain type(s) experienced in last month: Knee pain	KneeP_M
+ukb-b-12181	Pain type(s) experienced in last month: Headache	HeadP_M
+ukb-b-8909	Body fat percentage	BodyFP
+ukb-b-13745	Irritability	Irritable
+ukb-b-14146	Intra-ocular pressure, Goldmann-correlated (right)	IOP_G_R
+ukb-b-7926	Qualifications: NVQ or HND or HNC or equivalent	NVQHND
+ieu-b-4914	Leukaemia	Leukemia
+ukb-b-20531	Leg fat percentage (right)	LegFP_R
+ukb-b-11480	Corneal hysteresis (right)	CorHys_R
+ukb-b-19994	Spherical power (right)	SphPwr_R
+ukb-b-11361	ECG, heart rate	ECG_HR
+ukb-b-11615	Qualifications: A levels/AS levels or equivalent	ALevels
+ukb-b-10591	Chest pain or discomfort	ChestP
+ieu-b-4908	Anti-Saccharomyces cerevisiae IgA levels	ASCA_IgA
+ukb-b-17241	Blood clot, DVT, bronchitis, emphysema, asthma, rhinitis, eczema, allergy diagnosed by doctor: Hayfever, allergic rhinitis or eczema	Allergy
+ukb-b-8133	Light smokers, at least 100 smokes in lifetime	LightSmk
+ukb-b-20544	Nervous feelings	Nervous
+ukb-b-14057	Non-cancer illness code, self-reported: hypertension	SelfHTN
+ukb-b-19957	Suffer from 'nerves'	SuffNerv
+ukb-b-14177	Vascular/heart problems diagnosed by doctor: High blood pressure	HighBP
+ukb-b-15178	Corneal resistance factor (right)	CorRes_R
+ukb-b-17988	Tea consumed	TeaCons
+ukb-b-7007	Other eye problems	EyeProb
+bbj-a-73	Rheumatoid Arthritis	RA
+ukb-b-16489	Qualifications: College or University degree	CollegeD
+ukb-b-10505	Qualifications: CSEs or equivalent	CSEs
+ukb-b-18335	Wheeze or whistling in the chest in last year	Wheeze
+ieu-b-4874	Bladder cancer	BladCan
+ukb-b-11355	Ever stopped smoking for 6+ months	QuitSmk
+ukb-b-8476	Loneliness, isolation	Lonely
+ukb-b-18336	Seen a psychiatrist for nerves, anxiety, tension or depression	PsychAnx
+ukb-b-9508	Coffee consumed	CoffCons
+ukb-b-133	Hip pain for 3+ months	Hip3M
+ieu-a-1091	Top 1 % survival	Top1%Sur
+ukb-b-10093	Tense / 'highly strung'	HighStrg
+ieu-b-90	Oral cavity and pharyngeal cancer	OralCan
+ieu-b-102	Major depression	MajDep
+ukb-b-14486	Non-cancer illness code, self-reported: osteoarthritis	SelfOA
+ukb-b-7289	Pain type(s) experienced in last month: Hip pain	HipP_M
+ieu-b-4912	Head and neck cancer	HNC
+ukb-b-13092	Headaches for 3+ months	Head3M
+ukb-b-20296	Blood clot, DVT, bronchitis, emphysema, asthma, rhinitis, eczema, allergy diagnosed by doctor: Asthma	AsthmaDx
+ukb-b-18113	Non-cancer illness code, self-reported: asthma	SelfAsth
+ieu-b-4963	Ovarian cancer	OvarianC
+ukb-b-13346	Fractured/broken bones in last 5 years	Frac5Y
+ukb-b-11413	Pain type(s) experienced in last month: Stomach or abdominal pain	AbdP_M
+ukb-b-6353	Reason for glasses/contact lenses: For short-sightedness, i.e. only or mainly for distance viewing such as driving, cinema etc (called 'myopia')	Myopia
+ieu-b-4962	Oral and oropharyngeal cancer	OroPhCan
+ukb-b-15251	Fracture resulting from simple fall	FracFall
+ukb-b-16855	Cancer diagnosed by doctor	Dr_Canc
+ukb-b-12064	Non-cancer illness code, self-reported: depression	SelfDep
+ieu-b-4956	Lymphoid leukaemia	LymLeuk
+ukb-b-8196	Ever highly irritable/argumentative for 2 days	Irrit2D
+ukb-b-19097	Stomach/abdominal pain for 3+ months	AbdP_3M
+ukb-b-7178	Doctor diagnosed hayfever or allergic rhinitis	Hayfever
+ukb-b-4361	Leg pain when standing still or sitting	LegP_St
+ukb-b-16499	Non-cancer illness code, self-reported: hayfever/allergic rhinitis	SelfAllg
+ukb-b-16818	Non-cancer illness code, self-reported: gastro-oesophageal reflux (gord) / gastric reflux	GORD
+ieu-a-1085	Amyotrophic lateral sclerosis	ALS
+ukb-b-18189	Reason for glasses/contact lenses: For long-sightedness, i.e. for distance and near, but particularly for near tasks like reading (called 'hypermetropia')	HyperOp
+ukb-b-17868	Bilateral oophorectomy (both ovaries removed)	BilateralO
+ukb-b-4106	Chest pain or discomfort when walking uphill or hurrying	ChestWlk
+ieu-a-999	Body fat	BodyFat
+ukb-b-16858	Cough on most days	CoughMD
+ukb-b-12654	Former alcohol drinker	AlcPrev
+ukb-b-10753	Diabetes diagnosed by doctor	DiabetesD
+ukb-b-8329	Eye problems/disorders: Cataract	Cataract
+ukb-b-11297	Doctor diagnosed asthma	AsthmaDx
+ukb-b-9543	Shortness of breath walking on level ground	BreathS
+ukb-b-8468	Vascular/heart problems diagnosed by doctor: Angina	AnginaDx
+ukb-b-8650	Non-cancer illness code, self-reported: angina	SelfAng
+ukb-b-12948	Non-cancer illness code, self-reported: diabetes	SelfT2D
+ukb-b-338	Sex of baby: Female	SexF
+ieu-b-38	systolic blood pressure	SysBP
+ieu-b-39	diastolic blood pressure	DiaBP
+ukb-b-10066	Eye problems/disorders: Other serious eye condition	EyeOthr
+ukb-b-15272	Ever manic/hyper for 2 days	Manic2D
+ukb-b-11590	Vascular/heart problems diagnosed by doctor: Heart attack	HeartAtt
+ukb-b-11542	Manic/hyper symptoms: I was more active than usual	ManicAct
+ieu-a-28	Infant head circumference	InfHC
+ukb-b-11411	Blood clot, DVT, bronchitis, emphysema, asthma, rhinitis, eczema, allergy diagnosed by doctor: Blood clot in the leg (DVT)	DVT_Leg
+ukb-b-8893	Manic/hyper symptoms: I was more talkative than usual	ManicTalk
+ukb-b-17107	Pain type(s) experienced in last month: Facial pain	FaceP_M
+ukb-b-16609	Target heart rate achieved	THR_Ach
+ukb-b-1392	Type of cancer: ICD10: C61 Malignant neoplasm of prostate	CancerP
+ieu-a-1012	Plasma cortisol	PlasmaC
+ukb-b-8714	Vascular/heart problems diagnosed by doctor: Stroke	StrokeDx
+ieu-a-92	Obesity class 3	Obesity3
+ieu-a-93	Overweight	OverWt
+ieu-a-91	Obesity class 2	Obesity2
+ukb-b-16207	Blood clot, DVT, bronchitis, emphysema, asthma, rhinitis, eczema, allergy diagnosed by doctor: Emphysema/chronic bronchitis	EmphCB
+ukb-b-19041	Type of cancer: ICD10: C50.9 Breast, unspecified	CancerB
+ukb-b-3965	Diagnoses - main ICD10: G56.0 Carpal tunnel syndrome	CarpalTS
+ieu-a-90	Obesity class 1	Obesity1
+ukb-b-17514	Sex of baby: Male	SexM
+ukb-b-10248	Type of cancer: ICD10: C44.3 Skin of other and unspecified parts of face	SkinF
+ieu-b-35	C-Reactive protein level	CRP_Lvl
+ieu-a-1097	Microalbuminuria	MicroAlb
+ukb-b-17324	Eye problems/disorders: Glaucoma	Glaucoma
+ieu-a-836	College completion	CollegeD
+ieu-a-1107	Urinary albumin-to-creatinine ratio	UACR
+ukb-b-13187	Manic/hyper symptoms: I was more creative or had more ideas than usual	ManicCre
+ukb-b-7587	Length of longest manic/irritable episode	ManicLng
+ukb-b-13704	Blood clot, DVT, bronchitis, emphysema, asthma, rhinitis, eczema, allergy diagnosed by doctor: Blood clot in the lung	DVT_Lung
+ieu-a-86	Extreme height	Tallest
+ukb-b-11588	Manic/hyper symptoms: I needed less sleep than usual	ManicSlp
+ukb-b-6352	Type of cancer: ICD10: C50.4 Upper-outer quadrant of breast	CancerBU
+ukb-b-8416	Type of cancer: ICD10: C44.9 Malignant neoplasm of skin, unspecified	SkinU
+ukb-b-10002	Manic/hyper symptoms: All of the above	ManicAll
+ukb-b-918	Type of cancer: ICD10: D06.9 Cervix, unspecified	CancerCx
+ieu-b-40	body mass index	BMI
+ukb-b-17194	Eye problems/disorders: Macular degeneration	MacDeg
+ukb-b-8388	Started insulin within one year diagnosis of diabetes	Ins1Yr
+ukb-b-15685	Type of cancer: ICD10: C44.5 Skin of trunk	SkinT
+ukb-b-16781	Diagnoses - main ICD10: G47.3 Sleep apnoea	SleepAp
+ukb-b-10181	Eye problems/disorders: Diabetes related eye disease	DiabEye
+ukb-b-9050	Eye problems/disorders: Injury or trauma resulting in loss of vision	EyeTrau
+ukb-b-4323	Attempted fluid intelligence (FI) test.	FI_Test
+ukb-b-20464	Doctor diagnosed COPD (chronic obstructive pulmonary disease)	COPD
+ukb-b-1234	Doctor diagnosed chronic bronchitis	ChronBr
+ukb-b-5012	Surgery on leg arteries (other than for varicose veins)	LegArtS
